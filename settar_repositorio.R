@@ -22,3 +22,6 @@ gert::git_commit(message = ".gitignore")
 
 usethis::use_github()
 
+# Criar README ----
+
+usethis::use_readme_md()
