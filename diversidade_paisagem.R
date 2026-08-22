@@ -125,7 +125,8 @@ purrr::pmap(
           guide = guide_legend(title.position = "top",
                                title.hjust = 0.5)) +
         labs(title = psteo("Uso e Cobertura do solo para o ano de ", ano),
-             subtitle = "Fonte: MapBiomas") +
+             subtitle = "Fonte: MapBiomas",
+             fill = "Classes de uso e cobertura do solo") +
         coord_sf(expand = FALSE,
                  label_graticule = "NSWE") +
         theme_bw() +
