@@ -31,7 +31,7 @@ ggplot() +
 
 ## Baixar ----
 
-mirai::daemons(13)
+mirai::daemons(6)
 
 raster_uso <- purrr::map(
   1985:2025,
