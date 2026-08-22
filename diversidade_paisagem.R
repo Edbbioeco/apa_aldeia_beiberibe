@@ -102,3 +102,34 @@ classes <- purrr::map(raster_uso_trat,
                       .progress = TRUE)
 
 classes
+
+## Visualizar ----
+
+purrr::pmap(
+  list(raster_uso_trat,
+       1985:2024,
+       cores,
+       classes),
+  purrr::in_parallel(
+
+    \(raster, cor, classe, ano){
+
+      ggplot() +
+        tidyterra::geom_spatraster(data = raster) +
+        scale_fill_viridis_c(
+          values = cores,
+          labels = classe,
+          breaks = classe,
+          guide = guide_legend(title.position = "top",
+                               title.hjust = 0.5)) +
+        labs(title = ano) +
+        theme_bw() +
+        theme(axis.text = element_text(color = "black", size = 20),
+              legend.text = element_text(color = "black", size = 20),
+              legend.title = element_text(color = "black", size = 20),
+              legend.position = "bottom")
+
+      }
+
+    ),
+  .progress = TRUE)
