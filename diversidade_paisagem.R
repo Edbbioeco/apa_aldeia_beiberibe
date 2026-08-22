@@ -108,9 +108,9 @@ classes
 
 purrr::pmap(
   list(raster_uso_trat,
-       1985:2024,
        cores,
-       classes),
+       classes,
+       1985:2024),
   purrr::in_parallel(
 
     \(raster, cor, classe, ano){
