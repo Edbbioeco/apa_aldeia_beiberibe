@@ -72,7 +72,7 @@ purrr::imap(raster_uso_trat,
 
               ~ggplot() +
                 tidyterra::geom_spatraster(data = .x) +
-                scale_fill_viridis_c() +
+                scale_fill_viridis_d(na.translate = FALSE) +
                 labs(title = .y)
 
              ),
