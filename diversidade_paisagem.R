@@ -129,7 +129,8 @@ purrr::pmap(
         theme(axis.text = element_text(color = "black", size = 20),
               legend.text = element_text(color = "black", size = 20),
               legend.title = element_text(color = "black", size = 20),
-              legend.position = "bottom")
+              legend.position = "bottom") +
+        ggview::canvas(height = 10, width = 12)
 
       }
 
