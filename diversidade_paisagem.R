@@ -124,7 +124,8 @@ purrr::pmap(
           na.translate = FALSE,
           guide = guide_legend(title.position = "top",
                                title.hjust = 0.5)) +
-        labs(title = psteo("Uso e Cobertura do solo para o ano de ", ano)) +
+        labs(title = psteo("Uso e Cobertura do solo para o ano de ", ano),
+             subtitle = "Fonte: MapBiomas") +
         coord_sf(expand = FALSE,
                  label_graticule = "NSWE") +
         theme_bw() +
@@ -132,7 +133,8 @@ purrr::pmap(
               legend.text = element_text(color = "black", size = 20),
               legend.title = element_text(color = "black", size = 20),
               legend.position = "bottom",
-              plot.title = element_text(color = "black", size = 30)) +
+              plot.title = element_text(color = "black", size = 30),
+              plot.subtitle = element_text(color = "black", size = 30)) +
         ggview::canvas(height = 10, width = 12)
 
       }
