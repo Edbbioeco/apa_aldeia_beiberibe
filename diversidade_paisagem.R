@@ -13,3 +13,9 @@ library(ggview)
 library(landscapemetrics)
 
 library(gganimate)
+
+# Shapefile da APA Aldeiba Beiberibe ----
+
+## Importar ----
+
+apa <- sf::st_read("./shapefiles/apa_aldeiabeberibe.shp")
