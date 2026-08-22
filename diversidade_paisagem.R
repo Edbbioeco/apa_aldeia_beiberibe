@@ -123,7 +123,9 @@ purrr::pmap(
           labels = classe,
           na.translate = FALSE,
           guide = guide_legend(title.position = "top",
-                               title.hjust = 0.5)) +
+                               title.hjust = 0.5,
+                               nrow = 3,
+                               byrow = TRUE)) +
         labs(title = paste0("Uso e Cobertura do solo para o ano de ", ano),
              subtitle = "Fonte: MapBiomas",
              fill = "Classes de uso e cobertura do solo") +
