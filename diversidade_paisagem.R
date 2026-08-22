@@ -76,3 +76,17 @@ purrr::imap(raster_uso_trat,
 
              ),
            .progress = TRUE)
+
+# Mapas ----
+
+## Settar cores ----
+
+source("https://raw.githubusercontent.com/Edbbioeco/mapbiomas_classes/main/cor_classes_funcao.R")
+
+cores <- purrr::map(raster_uso_trat,
+                    ~vetorizar_cores(classes = .x |>
+                                         terra::values() |>
+                                         unique()),
+                    .progress = TRUE)
+
+cores
