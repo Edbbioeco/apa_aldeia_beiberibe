@@ -63,3 +63,16 @@ raster_uso_trat <- raster_uso |>
   purrr::compact()
 
 raster_uso_trat
+
+## Visualizar ----
+
+purrr::imap(raster_uso_trat,
+            purrr::in_parallel(
+
+              ~ggplot() +
+                tidyterra::geom_spatraster(data = .x) +
+                scale_fill_viridis_c() +
+                labs(title = .y)
+
+             ),
+           .progress = TRUE)
