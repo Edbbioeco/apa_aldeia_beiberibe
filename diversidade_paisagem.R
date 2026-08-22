@@ -119,8 +119,8 @@ purrr::pmap(
         tidyterra::geom_spatraster(data = raster) +
         scale_fill_manual(
           values = cor,
+          breaks = cor |> names(),
           labels = classe,
-          breaks = classe,
           na.translate = FALSE,
           guide = guide_legend(title.position = "top",
                                title.hjust = 0.5)) +
