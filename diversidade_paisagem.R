@@ -117,10 +117,11 @@ purrr::pmap(
 
       ggplot() +
         tidyterra::geom_spatraster(data = raster) +
-        scale_fill_viridis_c(
+        scale_fill_viridis_d(
           values = cores,
           labels = classe,
           breaks = classe,
+          na.translate = FALSE,
           guide = guide_legend(title.position = "top",
                                title.hjust = 0.5)) +
         labs(title = ano) +
