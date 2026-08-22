@@ -126,7 +126,7 @@ purrr::pmap(
                                title.hjust = 0.5)) +
         labs(title = ano) +
         coord_sf(expand = FALSE,
-                 label_graticule = "NSWE")
+                 label_graticule = "NSWE") +
         theme_bw() +
         theme(axis.text = element_text(color = "black", size = 20),
               legend.text = element_text(color = "black", size = 20),
