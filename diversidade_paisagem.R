@@ -117,7 +117,7 @@ purrr::pmap(
 
       ggplot() +
         tidyterra::geom_spatraster(data = raster) +
-        scale_fill_viridis_d(
+        scale_fill_manual(
           values = cores,
           labels = classe,
           breaks = classe,
