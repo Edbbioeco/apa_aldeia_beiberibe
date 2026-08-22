@@ -90,3 +90,15 @@ cores <- purrr::map(raster_uso_trat,
                     .progress = TRUE)
 
 cores
+
+## Settar classes ----
+
+source("https://raw.githubusercontent.com/Edbbioeco/mapbiomas_classes/main/nome_classe_funcao.R")
+
+classes <- purrr::map(raster_uso_trat,
+                      ~vetorizar_classes(classes = .x |>
+                                           terra::values() |>
+                                           unique()),
+                      .progress = TRUE)
+
+classes
