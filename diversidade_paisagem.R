@@ -118,7 +118,7 @@ purrr::pmap(
       ggplot() +
         tidyterra::geom_spatraster(data = raster) +
         scale_fill_manual(
-          values = cores,
+          values = cor,
           labels = classe,
           breaks = classe,
           na.translate = FALSE,
