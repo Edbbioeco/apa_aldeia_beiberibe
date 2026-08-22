@@ -124,7 +124,7 @@ purrr::pmap(
           na.translate = FALSE,
           guide = guide_legend(title.position = "top",
                                title.hjust = 0.5)) +
-        labs(title = ano) +
+        labs(title = psteo("Uso e Cobertura do solo para o ano de ", ano)) +
         coord_sf(expand = FALSE,
                  label_graticule = "NSWE") +
         theme_bw() +
