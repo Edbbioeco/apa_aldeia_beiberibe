@@ -31,6 +31,8 @@ ggplot() +
 
 ## Baixar ----
 
+mirai::daemons(13)
+
 raster_uso <- purrr::map(
   1985:2025,
   purrr::in_parallel(
@@ -61,3 +63,4 @@ raster_uso <- purrr::map(
   .progress = TRUE) |>
   setNames(1985:2025 |> as.character())
 
+mirai::daemons(0)
