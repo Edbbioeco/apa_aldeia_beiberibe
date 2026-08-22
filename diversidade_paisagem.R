@@ -57,7 +57,8 @@ raster_uso <- purrr::map(
 
       })
 
-    }
+    },
+    apa = apa
 
   ),
   .progress = TRUE) |>
