@@ -225,7 +225,7 @@ div_apa |>
            color = "black",
            fill = "green",
            size = 7.5) +
-  scale_x_continuous(breaks = seq(1985, 2024, 2)) +
+  scale_x_continuous(breaks = seq(1985, 2025, 5)) +
   theme_bw() +
   theme(axis.text = element_text(color = "black", size = 20),
         legend.text = element_text(color = "black", size = 20),
