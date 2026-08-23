@@ -184,3 +184,9 @@ imagens
 gif_apa_uso <- imagens |> magick::image_animate(fps = 1)
 
 gif_apa_uso
+
+## Exportar gif ----
+
+gif_apa_uso |>
+  magick::image_scale("1280x1066!") |>
+  magick::image_write("./apa_uso_cobertura.gif")
