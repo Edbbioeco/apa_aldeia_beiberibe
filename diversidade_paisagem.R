@@ -178,3 +178,9 @@ imagens <- purrr::map(
   magick::image_join()
 
 imagens
+
+## Criar o gif ----
+
+gif_apa_uso <- imagens |> magick::image_animate(fps = 1)
+
+gif_apa_uso
