@@ -194,3 +194,18 @@ gif_apa_uso
 gif_apa_uso |>
   magick::image_scale("1280x1066!") |>
   magick::image_write("./apa_uso_cobertura.gif")
+
+# Diversidade da paisagem ----
+
+## Calcular diversidade ----
+
+div_apa <- purrr::imap_dfr(
+  raster_uso_trat,
+  ~.x |>
+      landscapemetrics::lsm_l_sidi() |>
+      dplyr::mutate(Ano = .y),
+  .progress = TRUE) |>
+  dplyr::select(6:7) |>
+  dplyr::rename("Diversidade (D)" = 1)
+
+div_apa
