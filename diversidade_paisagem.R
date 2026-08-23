@@ -10,6 +10,8 @@ library(tidyterra)
 
 library(ggview)
 
+library(magick)
+
 library(landscapemetrics)
 
 library(gganimate)
