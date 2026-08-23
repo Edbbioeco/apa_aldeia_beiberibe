@@ -207,20 +207,20 @@ div_apa <- purrr::imap_dfr(
                       as.numeric()),
   .progress = TRUE) |>
   dplyr::select(6:7) |>
-  dplyr::rename("Diversidade (D)" = 1)
+  dplyr::rename("Diversidade (Gini-Simpson)" = 1)
 
 div_apa
 
 ## Gráfico ----
 
 div_apa |>
-  ggplot(aes(Ano, `Diversidade (D)`)) +
+  ggplot(aes(Ano, `Diversidade (Gini-Simpson)`)) +
   geom_line(linewidth = 1) +
   geom_vline(xintercept = 2010, linewidth = 1, color = "darkgreen") +
   geom_label(data = tibble(Ano = 2010,
-                           `Diversidade (D)` = 0.64),
+                           `Diversidade (Gini-Simpson)` = 0.64),
              aes(Ano,
-                 `Diversidade (D)`,
+                 `Diversidade (Gini-Simpson)`,
                  label = "Criação da APA Aldeia Beiberibe"),
            color = "black",
            fill = "green",
