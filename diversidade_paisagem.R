@@ -106,7 +106,7 @@ classes
 
 ## Visualizar ----
 
-purrr::pmap(
+mpas <- purrr::pmap(
   list(raster_uso_trat,
        cores,
        classes,
@@ -144,3 +144,5 @@ purrr::pmap(
 
     ),
   .progress = TRUE)
+
+mpas
