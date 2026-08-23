@@ -204,11 +204,32 @@ div_apa <- purrr::imap_dfr(
   ~.x |>
       landscapemetrics::lsm_l_sidi() |>
       dplyr::mutate(Ano = .y |>
-                      as.numeric() |>
-                      lubridate::as_date()),
+                      as.numeric()),
   .progress = TRUE) |>
   dplyr::select(6:7) |>
   dplyr::rename("Diversidade (D)" = 1)
 
 div_apa
 
+## Gráfico ----
+
+div_apa |>
+  ggplot(aes(Ano, `Diversidade (D)`)) +
+  geom_line(linewidth = 1) +
+  geom_vline(xintercept = 2010, linewidth = 1, color = "darkgreen") +
+  geom_label(data = tibble(Ano = 2010,
+                           `Diversidade (D)` = 0.64),
+             aes(Ano,
+                 `Diversidade (D)`,
+                 label = "Criação da APA Aldeia Beiberibe"),
+           color = "black",
+           fill = "green",
+           size = 7.5) +
+  theme_bw() +
+  theme(axis.text = element_text(color = "black", size = 20),
+        legend.text = element_text(color = "black", size = 20),
+        legend.title = element_text(color = "black", size = 20),
+        legend.position = "bottom",
+        plot.title = element_text(color = "black", size = 30),
+        plot.subtitle = element_text(color = "black", size = 30)) +
+  ggview::canvas(height = 10, width = 12)
