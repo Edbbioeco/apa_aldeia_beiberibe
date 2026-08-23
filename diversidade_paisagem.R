@@ -153,9 +153,7 @@ mapas
 
 imagens <- purrr::map(
   mapas,
-  purrr::in_parallel(
-
-    \(p){
+  \(p){
 
       img <- magick::image_graph(width = 1280,
                                  height = 1066,
@@ -167,8 +165,7 @@ imagens <- purrr::map(
 
       img
 
-      }
-    ),
+      },
   .progress = TRUE) |>
   magick::image_join()
 
