@@ -5,3 +5,7 @@
 # Evolução da paisagem
 
 ![](apa_uso_cobertura.gif)
+
+# Série temporal da diversidade da paisagem
+
+![](diversidade_da_paisagem.png)
