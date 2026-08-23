@@ -128,6 +128,10 @@ mapas <- purrr::pmap(
                                title.hjust = 0.5,
                                nrow = 3,
                                byrow = TRUE)) +
+        geom_sf(data = apa,
+                color = "black",
+                fill = "transparent",
+                linewidth = 1) +
         labs(title = paste0("Uso e Cobertura do solo para o ano de ", ano),
              subtitle = "Fonte: MapBiomas",
              fill = "Classes de uso e cobertura do solo") +
