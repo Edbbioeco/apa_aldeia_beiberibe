@@ -228,6 +228,7 @@ div_apa |>
   scale_x_continuous(breaks = seq(1985, 2025, 5)) +
   theme_bw() +
   theme(axis.text = element_text(color = "black", size = 20),
+        axis.title = element_text(color = "black", size = 20),
         legend.text = element_text(color = "black", size = 20),
         legend.title = element_text(color = "black", size = 20),
         legend.position = "bottom",
