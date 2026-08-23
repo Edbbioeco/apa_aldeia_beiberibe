@@ -146,3 +146,29 @@ mapas <- purrr::pmap(
   .progress = TRUE)
 
 mapas
+
+# Gif da evolução da paisagem ----
+
+## Transformar a lista em um objeto para o pacote magick ----
+
+imagens <- purrr::map(
+  mapas,
+  purrr::in_parallel(
+
+    \(p){
+
+      img <- magick::image_graph(width = 1280,
+                                 height = 1066,
+                                 res = 150)
+
+      print(p)
+
+      dev.off()
+
+      img
+
+      }
+    ),
+  .progress = TRUE)
+
+imagens
