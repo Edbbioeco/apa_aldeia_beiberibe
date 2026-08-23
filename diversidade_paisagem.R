@@ -153,19 +153,25 @@ mapas
 
 imagens <- purrr::map(
   mapas,
-  \(p){
+  purrr::in_parallel(
 
-      img <- magick::image_graph(width = 1280,
-                                 height = 1066,
+    \(p){
+
+      img <- magick::image_graph(height = 10 * 150,
+                                 width = 12 * 150,
                                  res = 150)
 
-      print(p)
+      grid::grid.newpage()
+
+      grid::grid.draw(ggplot2::ggplotGrob(p))
 
       dev.off()
 
       img
 
-      },
+      }
+
+    ),
   .progress = TRUE) |>
   magick::image_join()
 
