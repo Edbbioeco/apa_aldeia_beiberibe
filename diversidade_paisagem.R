@@ -233,5 +233,6 @@ div_apa |>
         legend.title = element_text(color = "black", size = 20),
         legend.position = "bottom",
         plot.title = element_text(color = "black", size = 30),
-        plot.subtitle = element_text(color = "black", size = 30)) +
+        plot.subtitle = element_text(color = "black", size = 30),
+        panel.border = element_rect(color = "black", linewidth = 1)) +
   ggview::canvas(height = 10, width = 12)
