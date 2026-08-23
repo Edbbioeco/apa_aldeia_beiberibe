@@ -217,8 +217,9 @@ div_apa |>
   ggplot(aes(Ano, `Diversidade da paisagem (Gini-Simpson)`)) +
   geom_line(linewidth = 1) +
   geom_vline(xintercept = 2010, linewidth = 1, color = "darkgreen") +
-  geom_label(data = tibble(Ano = 2010,
-                           `Diversidade da paisagem (Gini-Simpson)` = 0.64),
+  geom_label(data =
+               tibble(Ano = 2010,
+                      `Diversidade da paisagem (Gini-Simpson)` = 0.64),
              aes(Ano,
                  `Diversidade da paisagem (Gini-Simpson)`,
                  label = "Criação da APA Aldeia Beiberibe"),
