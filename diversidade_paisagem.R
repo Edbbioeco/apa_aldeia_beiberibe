@@ -164,7 +164,7 @@ imagens <- purrr::map(
     \(p){
 
       img <- magick::image_graph(height = 10 * 150,
-                                 width = 12 * 150,
+                                 width = 16 * 150,
                                  res = 150)
 
       grid::grid.newpage()
