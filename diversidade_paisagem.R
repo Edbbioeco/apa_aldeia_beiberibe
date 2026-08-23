@@ -169,6 +169,7 @@ imagens <- purrr::map(
 
       }
     ),
-  .progress = TRUE)
+  .progress = TRUE) |>
+  magick::image_join()
 
 imagens
