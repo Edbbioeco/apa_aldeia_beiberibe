@@ -203,9 +203,12 @@ div_apa <- purrr::imap_dfr(
   raster_uso_trat,
   ~.x |>
       landscapemetrics::lsm_l_sidi() |>
-      dplyr::mutate(Ano = .y),
+      dplyr::mutate(Ano = .y |>
+                      as.numeric() |>
+                      lubridate::as_date()),
   .progress = TRUE) |>
   dplyr::select(6:7) |>
   dplyr::rename("Diversidade (D)" = 1)
 
 div_apa
+
