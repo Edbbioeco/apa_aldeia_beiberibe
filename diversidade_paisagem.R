@@ -144,7 +144,7 @@ mapas <- purrr::pmap(
               legend.position = "bottom",
               plot.title = element_text(color = "black", size = 30),
               plot.subtitle = element_text(color = "black", size = 30)) +
-        ggview::canvas(height = 10, width = 12)
+        ggview::canvas(height = 10, width = 16)
 
       }
 
