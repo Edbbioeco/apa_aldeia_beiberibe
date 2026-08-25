@@ -88,7 +88,7 @@ codigos
 
 ## Filtrar ----
 
-raster_marta <- purrr::imap(
+raster_mata <- purrr::imap(
   raster_uso_trat,
   ~.x |>
       tidyterra::mutate(
@@ -104,4 +104,4 @@ raster_marta <- purrr::imap(
         .data[[paste0("brazil_coverage_", .y)]] == "Mata"),
   .progress = TRUE)
 
-raster_marta
+raster_mata
