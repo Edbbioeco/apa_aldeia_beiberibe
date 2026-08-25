@@ -77,3 +77,11 @@ purrr::imap(raster_uso_trat,
 
             ),
             .progress = TRUE)
+
+# Área de Mata ----
+
+## Códigos das áreas de mata ----
+
+codigos <- c(1:6, 10:12, 29, 32, 49:50) |> as.character()
+
+codigos
