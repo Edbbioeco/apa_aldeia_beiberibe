@@ -64,3 +64,16 @@ raster_uso_trat <- raster_uso |>
   purrr::map(~.x |> terra::as.factor())
 
 raster_uso_trat
+
+## Visualizar ----
+
+purrr::imap(raster_uso_trat,
+            purrr::in_parallel(
+
+              ~ggplot() +
+                tidyterra::geom_spatraster(data = .x) +
+                scale_fill_viridis_d(na.translate = FALSE) +
+                labs(title = .y)
+
+            ),
+            .progress = TRUE)
