@@ -85,3 +85,23 @@ purrr::imap(raster_uso_trat,
 codigos <- c(1:6, 10:12, 29, 32, 49:50) |> as.character()
 
 codigos
+
+## Filtrar ----
+
+raster_marta <- purrr::imap(
+  raster_uso_trat,
+  ~.x |>
+      tidyterra::mutate(
+        !!{{paste0("brazil_coverage_", .y)}} := dplyr::case_when(
+
+          .data[[paste0("brazil_coverage_", .y)]] %in%
+            (codigos |> as.numeric()) ~ "Mata",
+          .default = .data[[paste0("brazil_coverage_", .y)]] |> as.character()
+
+        )
+      ) |>
+      tidyterra::filter(
+        .data[[paste0("brazil_coverage_", .y)]] == "Mata"),
+  .progress = TRUE)
+
+raster_marta
