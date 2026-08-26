@@ -222,6 +222,6 @@ imagens
 
 ## Criar o gif ----
 
-gif_apa_uso <- imagens |> magick::image_animate(fps = 1)
+gif_apa_mata <- imagens |> magick::image_animate(fps = 1)
 
-gif_apa_uso
+gif_apa_mata
