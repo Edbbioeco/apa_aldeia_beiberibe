@@ -143,3 +143,17 @@ mapas_mata <- purrr::imap(
   .progress = TRUE)
 
 mapas_mata
+
+## Área da mata ----
+
+### Calcular área ----
+
+df_area_mata <- purrr::imap_dfr(
+  raster_mata,
+  ~tibble::tibble(`Área de mata (km²)` = .x |>
+                    terra::expanse(unit = "km") |>
+                    dplyr::pull(area),
+                  Ano = .y |> as.numeric()),
+  .progress = TRUE)
+
+df_area_mata
