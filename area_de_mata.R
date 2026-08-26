@@ -105,3 +105,36 @@ raster_mata <- purrr::imap(
   .progress = TRUE)
 
 raster_mata
+
+## Visualizar ----
+
+mapas_mata <- purrr::imap(
+  raster_mata,
+  \(raster, ano){
+
+    ggplot() +
+    tidyterra::geom_spatraster(data = raster) +
+    scale_fill_manual(values = "darkgreen",
+                      na.translate = FALSE) +
+    geom_sf(data = apa,
+            color = "black",
+            fill = "transparent",
+            linewidth = 1) +
+    labs(title = paste0("Área de Mata APA Aldeia Beiberibe para o ano de ", ano),
+         subtitle = "Fonte: MapBiomas",
+         fill = NULL) +
+    coord_sf(expand = FALSE,
+             label_graticule = "NSWE") +
+    theme_bw() +
+    theme(axis.text = element_text(color = "black", size = 20),
+          legend.text = element_text(color = "black", size = 20),
+          legend.title = element_text(color = "black", size = 20),
+          legend.position = "bottom",
+          plot.title = element_text(color = "black", size = 30),
+          plot.subtitle = element_text(color = "black", size = 30)) +
+    ggview::canvas(height = 10, width = 16)
+
+    },
+  .progress = TRUE)
+
+mapas_mata
