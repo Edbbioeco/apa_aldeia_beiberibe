@@ -189,3 +189,33 @@ df_area_mata |>
 
 ggsave(filename = "./area_de_mata.png",
        height = 10, width = 12)
+
+# Gif da área de mata ----
+
+## Transformar a lista em um objeto para o pacote magick ----
+
+imagens <- purrr::map(
+  mapas_mata,
+  purrr::in_parallel(
+
+    \(p){
+
+      img <- magick::image_graph(height = 10 * 150,
+                                 width = 12 * 150,
+                                 res = 150)
+
+      grid::grid.newpage()
+
+      grid::grid.draw(ggplot2::ggplotGrob(p))
+
+      dev.off()
+
+      img
+
+    }
+
+  ),
+  .progress = TRUE) |>
+  magick::image_join()
+
+imagens
