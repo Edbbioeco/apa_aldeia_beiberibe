@@ -230,4 +230,4 @@ gif_apa_mata
 
 gif_apa_mata |>
   magick::image_scale("1280x1066!") |>
-  magick::image_write("./apa_uso_cobertura.gif")
+  magick::image_write("./apa_mata.gif")
