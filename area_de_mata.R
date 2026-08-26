@@ -113,6 +113,9 @@ mapas_mata <- purrr::imap(
   \(raster, ano){
 
     ggplot() +
+      geom_sf(data = apa,
+              color = "black",
+              linewidth = 1) +
     tidyterra::geom_spatraster(data = raster) +
     scale_fill_manual(values = "darkgreen",
                       na.translate = FALSE) +
@@ -130,8 +133,10 @@ mapas_mata <- purrr::imap(
           legend.text = element_text(color = "black", size = 20),
           legend.title = element_text(color = "black", size = 20),
           legend.position = "bottom",
-          plot.title = element_text(color = "black", size = 30),
-          plot.subtitle = element_text(color = "black", size = 30)) +
+          plot.title = element_text(color = "black", size = 30,
+                                    hjust = 0.5),
+          plot.subtitle = element_text(color = "black", size = 30,
+                                       hjust = 0.5)) +
     ggview::canvas(height = 10, width = 12)
 
     },
