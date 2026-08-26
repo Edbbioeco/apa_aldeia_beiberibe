@@ -132,7 +132,7 @@ mapas_mata <- purrr::imap(
           legend.position = "bottom",
           plot.title = element_text(color = "black", size = 30),
           plot.subtitle = element_text(color = "black", size = 30)) +
-    ggview::canvas(height = 10, width = 16)
+    ggview::canvas(height = 10, width = 12)
 
     },
   .progress = TRUE)
