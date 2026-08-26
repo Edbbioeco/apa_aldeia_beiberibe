@@ -6,6 +6,10 @@
 
 ![](apa_uso_cobertura.gif)
 
+# Evoluão da área de mata
+
+![](apa_mata.gif)
+
 # Série temporal da diversidade da paisagem
 
 ![](diversidade_da_paisagem.png)
