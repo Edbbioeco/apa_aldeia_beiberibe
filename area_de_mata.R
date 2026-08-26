@@ -157,3 +157,35 @@ df_area_mata <- purrr::imap_dfr(
   .progress = TRUE)
 
 df_area_mata
+
+## Gráfico ----
+
+df_area_mata |>
+  ggplot(aes(Ano, `Área de mata (km²)`)) +
+  geom_line(linewidth = 1) +
+  geom_vline(xintercept = 2010, linewidth = 1, color = "darkgreen") +
+  geom_label(data =
+               tibble(Ano = 2010,
+                      `Diversidade da paisagem (Gini-Simpson)` = 185),
+             aes(Ano,
+                 `Diversidade da paisagem (Gini-Simpson)`,
+                 label = "Criação da APA Aldeia Beiberibe"),
+             color = "black",
+             fill = "green",
+             size = 7.5) +
+  scale_x_continuous(breaks = seq(1985, 2025, 5)) +
+  theme_bw() +
+  theme(axis.text = element_text(color = "black", size = 20),
+        axis.title = element_text(color = "black", size = 20),
+        legend.text = element_text(color = "black", size = 20),
+        legend.title = element_text(color = "black", size = 20),
+        legend.position = "bottom",
+        plot.title = element_text(color = "black", size = 30,
+                                  hjust = 0.5),
+        plot.subtitle = element_text(color = "black", size = 30,
+                                     hjust = 0.5),
+        panel.border = element_rect(color = "black", linewidth = 1)) +
+  ggview::canvas(height = 10, width = 12)
+
+ggsave(filename = "./area_de_mata.png",
+       height = 10, width = 12)
