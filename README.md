@@ -17,3 +17,7 @@
 # Série temporal da área de mata
 
 ![](area_de_mata.png)
+
+# Altitude (m)
+
+![](apa_altitude.png)
