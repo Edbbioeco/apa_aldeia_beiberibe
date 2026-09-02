@@ -81,3 +81,19 @@ df_histo <- elev |>
   dplyr::rename("Altitude (m)" = 1)
 
 df_histo
+
+### Gráfico ----
+
+df_histo |>
+  ggplot(aes(`Altitude (m)`)) +
+  geom_histogram(color = "black") +
+  labs(y = "Quantidade de pixels") +
+  scale_x_continuous(breaks = seq(0, 250, 50)) +
+  theme_bw() +
+  theme(axis.text = element_text(color = "black", size = 20),
+        axis.title = element_text(color = "black", size = 20),
+        panel.border = element_rect(color = "black", linewidth = 1)) +
+  ggview::canvas(height = 10, width = 12)
+
+ggsave(filename = "./histograma_apa_altitude.png",
+       height = 10, width = 12)
