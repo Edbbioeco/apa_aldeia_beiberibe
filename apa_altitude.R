@@ -29,8 +29,7 @@ ggplot() +
 
 ## Baixar dados de altitude ----
 
-elev <- elevatr::get_elev_raster(locations = apa |>
-                                   sf::st_zm(drop = TRUE, what = "ZM"),
+  elev <- elevatr::get_aws_terrain(locations = apa,
                                  prj = apa |> sf::st_crs(),
                                  z = 14,
                                  clip = "locations") |>
