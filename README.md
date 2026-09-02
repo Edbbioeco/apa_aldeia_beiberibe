@@ -21,3 +21,5 @@
 # Altitude (m)
 
 ![](apa_altitude.png)
+
+![](histograma_apa_altitude.png)
