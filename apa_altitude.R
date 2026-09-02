@@ -43,3 +43,29 @@ elev
 ggplot() +
   tidyterra::geom_spatraster(data = elev) +
   scale_fill_viridis_c(na.value = "transparent")
+
+## Mapa ----
+
+ggplot() +
+  tidyterra::geom_spatraster(data = elev) +
+  tidyterra::scale_fill_hypso_c(
+    palette = "colombia_hypso",
+    na.value = "transparent",
+    direction = -1,
+    guide = guide_colourbar(title = "Atitude (m)",
+                            title.position = "top",
+                            title.hjust = 0.5,
+                            barheight = 2,
+                            barwidth = 30,
+                            frame.colour = "black",
+                            ticks.colour = "black")) +
+  theme_bw() +
+  theme(axis.text = element_text(color = "black", size = 20),
+        legend.text = element_text(color = "black", size = 20),
+        legend.title = element_text(color = "black", size = 20),
+        legend.position = "bottom",
+        panel.border = element_rect(color = "black", linewidth = 1)) +
+  ggview::canvas(height = 10, width = 12)
+
+ggsave(filename = "./apa_altitude.png",
+       height = 10, width = 12)
