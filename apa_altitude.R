@@ -25,3 +25,14 @@ apa
 ggplot() +
   geom_sf(data = apa, color = "black")
 
+# Altitude ----
+
+## Baixar dados de altitude ----
+
+elev <- elevatr::get_elev_raster(locations = apa |>
+                                   sf::st_zm(drop = TRUE, what = "ZM"),
+                                 prj = apa |> sf::st_crs(),
+                                 z = 14,
+                                 clip = "locations") |>
+  terra::mask(apa) |>
+  terra::crop(apa)
