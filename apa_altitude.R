@@ -18,3 +18,10 @@ library(ggview)
 
 apa <- sf::st_read("./shapefiles/apa_aldeiabeberibe.shp")
 
+## Visualizar ----
+
+apa
+
+ggplot() +
+  geom_sf(data = apa, color = "black")
+
