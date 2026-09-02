@@ -35,3 +35,11 @@ ggplot() +
                                  clip = "locations") |>
   terra::mask(apa) |>
   terra::crop(apa)
+
+## Visualizar  ----
+
+elev
+
+ggplot() +
+  tidyterra::geom_spatraster(data = elev) +
+  scale_fill_viridis_c(na.value = "transparent")
